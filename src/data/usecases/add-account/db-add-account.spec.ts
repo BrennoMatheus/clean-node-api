@@ -4,7 +4,7 @@ import { Hasher, AddAccountRepository, AccountModel, AddAccountModel } from './d
 const makeHasher = (): Hasher => {
   class HasherStub implements Hasher {
     async hash (value: string): Promise<string> {
-      return new Promise(resolve => resolve('hashed_password'))
+      return await new Promise(resolve => resolve('hashed_password'))
     }
   }
   return new HasherStub()
@@ -19,7 +19,7 @@ const makeAddAccountRepository = (): AddAccountRepository => {
         email: 'valid_email@mail.com',
         password: 'hashed_password'
       }
-      return new Promise(resolve => resolve(fakeAccount))
+      return await new Promise(resolve => resolve(fakeAccount))
     }
   }
   return new AddAccountRepositoryStub()
