@@ -38,7 +38,7 @@ interface SutTypes {
   addAccountRepositoryStub: AddAccountRepository
 }
 
-const makeSut = (): any => {
+const makeSut = (): SutTypes => {
   const hasherStub = makeHasher()
   const addAccountRepositoryStub = makeAddAccountRepository()
   const sut = new DbAddAccount(hasherStub, addAccountRepositoryStub)
