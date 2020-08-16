@@ -21,6 +21,7 @@ export const MongoHelper = {
     if (!this.client?.isConnected()) {
       await this.connect(this.url)
     }
+    console.log('is connected')
     return this.client.db().collection(name)
   },
 
