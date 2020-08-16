@@ -5,6 +5,7 @@ import { AccountMongoRepository } from '../../../infra/db/mongodb/account-reposi
 import { makeSignUpValidation } from './signup-validation'
 import { LogControllerDecorator } from '../../decorators/log'
 import { Controller } from '../../../presentation/protocols'
+import { LogMongoRepository } from '../../../infra/db/mongodb/log-repository/log'
 
 export const makeSignUpController = (): Controller => {
   const salt = 12
@@ -12,6 +13,7 @@ export const makeSignUpController = (): Controller => {
   const accountRepository = new AccountMongoRepository()
   const addAccount = new DbAddAccount(bcryptAdapter, accountRepository)
   const signUpController = new SignUpController(addAccount, makeSignUpValidation())
+  const logMongoRepository = new LogMongoRepository()
 
-  return new LogControllerDecorator(signUpController)
+  return new LogControllerDecorator(signUpController,logMongoRepository)
 }
