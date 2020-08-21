@@ -5,7 +5,7 @@ import {
   RequiredFieldValidation
 } from '../../../presentation/helpers/validators'
 
-import { makeSignUpValidation } from './signup-validation'
+import { makeSignUpValidation } from './signup-validation-factory'
 import { Validation } from '../../../presentation/protocols/validation'
 import { } from '../../../presentation/helpers/validators/compare-fields-validation'
 import { } from '../../../presentation/helpers/validators/email-validation'
