@@ -9,6 +9,7 @@
     "@shelf/jest-mongodb": "^1.1.5",
     "@types/bcrypt": "^3.0.0",
     "@types/express": "^4.17.7",
+    "@types/express-serve-static-core": "^4.17.9",
     "@types/jest": "^26.0.3",
     "@types/mongodb": "^3.5.25",
     "@types/node": "^14.0.14",
@@ -25,13 +26,16 @@
     "husky": "^4.2.5",
     "jest": "^26.1.0",
     "lint-staged": "^10.2.11",
+    "rimraf": "^3.0.2",
     "sucrase": "^3.15.0",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.1",
     "typescript": "^3.9.5"
   },
   "scripts": {
-    "start": "sucrase-node src/main/server.ts",
+    "start": "node dist/main/server.js",
+    "build": "rimraf dist && tsc",
+    "dev": "sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:integration": "yarn test --watch -c jest-integration-config.js",
@@ -43,7 +47,6 @@
     "@types/jsonwebtoken": "^8.5.0",
     "bcrypt": "^5.0.0",
     "express": "^4.17.1",
-    "fast-glob": "^3.2.4",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
     "validator": "^13.1.1"
