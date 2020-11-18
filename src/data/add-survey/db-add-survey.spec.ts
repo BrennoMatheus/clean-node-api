@@ -41,14 +41,14 @@ describe('DbAddSurvey Usecase', () => {
     expect(addSpy).toHaveBeenCalledWith(data)
   })
 
-  // test('Should throw if Hasher throws', async () => {
-  //   const { sut, addSurveyRepositoryStub } = makeSut()
+  test('Should throw if Hasher throws', async () => {
+    const { sut, addSurveyRepositoryStub } = makeSut()
 
-  //   jest.spyOn(addSurveyRepositoryStub, 'add')
-  //     .mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    jest.spyOn(addSurveyRepositoryStub, 'add')
+      .mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
 
-  //   const promise = sut.add(makeFakesSurveyData())
+    const promise = sut.add(makeFakesSurveyData())
 
-  //   await expect(promise).rejects.toThrow()
-  // })
+    await expect(promise).rejects.toThrow()
+  })
 })
